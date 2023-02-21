@@ -1,0 +1,6 @@
+.list-item {
+  display: grid;
+  grid-template-columns: 0.5fr 0.25fr 10fr;
+  list-style-type: disc;
+  margin: 5px;
+}
