@@ -15,8 +15,8 @@ function createListItems() {
   removeBtn.appendChild(document.createTextNode("Remove"));
   listItems.appendChild(removeBtn);
   removeBtn.setAttribute("class", "remove-btn selector");
-  removeBtn.addEventListener("click", function () {
-    removeListItem();
+  removeBtn.addEventListener("click", (event) => {
+    listContainer.removeChild(listItems);
   });
 }
 function removeListItem() {
@@ -33,4 +33,5 @@ input.addEventListener("keypress", function (event) {
     createListItems();
   }
 });
+
 
