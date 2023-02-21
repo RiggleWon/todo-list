@@ -1,18 +1,26 @@
 const input = document.querySelector(".input");
 const btn = document.querySelector(".btn");
-const listContainer = document.querySelector(".list-container");
-const listItems = document.createElement("div");
-const removeBtn = document.createElement("button");
+const listContainer = document.querySelector("ul");
 
 function inputLength() {
   return input.value.length;
 }
 function createListItems() {
+  const listItems = document.createElement("li");
+  const removeBtn = document.createElement("button");
   listItems.appendChild(document.createTextNode(input.value));
   listContainer.appendChild(listItems);
-  listItems.setAttributes("class", "list-item");
+  input.value = "";
+  listItems.setAttribute("class", "list-item");
   removeBtn.appendChild(document.createTextNode("Remove"));
-  listContainer.appendChild(removeBtn);
+  listItems.appendChild(removeBtn);
+  removeBtn.setAttribute("class", "remove-btn selector");
+  removeBtn.addEventListener("click", function () {
+    removeListItem();
+  });
+}
+function removeListItem() {
+  document.querySelector(".list-item").remove();
 }
 
 btn.addEventListener("click", function () {
@@ -25,3 +33,4 @@ input.addEventListener("keypress", function (event) {
     createListItems();
   }
 });
+
